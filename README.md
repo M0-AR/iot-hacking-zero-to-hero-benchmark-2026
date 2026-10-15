@@ -10,7 +10,7 @@
 [![License](https://img.shields.io/badge/license-MIT-green?style=for-the-badge)](LICENSE)
 [![No HW](https://img.shields.io/badge/hardware-not_required-orange?style=for-the-badge)](#-beginner-guide--read-this-and-you-are-a-professional)
 
-[🌐 Live Website](preview.html) · [🚀 Quick Start](#-quick-start-3-commands) · [🌱 Beginner Guide](#-beginner-guide--read-this-and-you-are-a-professional) · [🧠 Quiz](#-interactive-quiz-zero-to-pro) · [📊 Benchmarks](#-benchmarks-live-2026-10-15)
+[🌐 Live Website](https://m0-ar.github.io/iot-hacking-zero-to-hero-benchmark-2026/preview.html) · [🚀 Quick Start](#-quick-start-3-commands) · [🌱 Beginner Guide](#-beginner-guide--read-this-and-you-are-a-professional) · [🧠 Quiz](#-interactive-quiz-zero-to-pro) · [📊 Benchmarks](#-benchmarks-live-2026-10-15)
 
 </div>
 
@@ -24,7 +24,7 @@
 
 **Why it matters:** students go from zero to interview-ready in 15 minutes. Auditors get checklist evidence. Engineers get copy-paste fixes. Trainers get a ready 90-minute class with quiz.
 
-**How:** `pip install -r requirements.txt` → `python3 experiments/run_all.py` → open `preview.html`.
+**How:** `pip install -r requirements.txt` → `python3 experiments/run_all.py` → open [the live site](https://m0-ar.github.io/iot-hacking-zero-to-hero-benchmark-2026/preview.html).
 
 ![Demo](docs/demo.gif)
 
@@ -193,7 +193,7 @@ Machine copy: `benchmarks/summary.json`.
 
 ## 🧠 Interactive Quiz (zero to pro)
 
-Open **`preview.html`** in any browser (or via GitHub Pages below) for a 10-question quiz with instant explanations. Score 8+/10 and you can teach this material.
+Open the **[live quiz](https://m0-ar.github.io/iot-hacking-zero-to-hero-benchmark-2026/preview.html)** in any browser for 10 questions with instant explanations. Score 8+/10 and you can teach this material.
 
 Topics: DREAD, MQTT, CONNACK, UPnP, firmware, LoRaWAN, PMKID, MIFARE, BLE gates, hidden pattern.
 
@@ -201,16 +201,33 @@ Topics: DREAD, MQTT, CONNACK, UPnP, firmware, LoRaWAN, PMKID, MIFARE, BLE gates,
 
 ## 🌍 Website + GitHub Pages (2026)
 
-This repo ships a dependency-free website: **`preview.html`** (quiz + benchmarks + guide, no CDN, works offline).
+This repo ships a dependency-free website (quiz + benchmarks + guide, no CDN, works offline). Pick any entry — all three resolve under either Pages source setting:
+
+| Entry | Click to open |
+|-------|---------------|
+| `/` (home) | [m0-ar.github.io/iot-hacking-zero-to-hero-benchmark-2026/](https://m0-ar.github.io/iot-hacking-zero-to-hero-benchmark-2026/) |
+| `/preview.html` | [m0-ar.github.io/iot-hacking-zero-to-hero-benchmark-2026/preview.html](https://m0-ar.github.io/iot-hacking-zero-to-hero-benchmark-2026/preview.html) |
+| `/docs/preview.html` | [m0-ar.github.io/iot-hacking-zero-to-hero-benchmark-2026/docs/preview.html](https://m0-ar.github.io/iot-hacking-zero-to-hero-benchmark-2026/docs/preview.html) |
+
+Why three? Pages mirrors repo paths under the chosen source, so a page living in only one folder 404s under the other setting. We keep mirrors (`preview.html` + `index.html` at root and in `docs/`, plus `.nojekyll` in both) so `/`, `/preview.html` and `/docs/preview.html` all return 200 either way.
 
 Publish in 2 minutes:
 ```bash
-git add preview.html docs/demo.gif docs/hero.webp README.md
+git add preview.html docs/preview.html index.html docs/index.html .nojekyll docs/.nojekyll docs/demo.gif docs/hero.webp README.md
 git commit -m "publish site" && git push origin main
-# GitHub → Settings → Pages → Deploy from branch → main → /(root)
-# Open https://<you>.github.io/<repo>/preview.html
+# GitHub → Settings → Pages → Deploy from branch → main → /(root)  (or /docs — both work)
+# Wait 1–2 min, check Actions → "pages build and deployment", then click the table above.
 ```
 Branch deploy (simplest, recommended for beginners) vs Actions (for builds): choose branch deploy here because the site is static with no build step.
+
+Diagnose in 10 seconds (expects 200/200/200):
+```bash
+BASE="https://m0-ar.github.io/iot-hacking-zero-to-hero-benchmark-2026"
+for p in "" "preview.html" "docs/preview.html"; do
+  printf "%s -> " "/$p"
+  curl -s -o /dev/null -w "%{http_code}\n" "$BASE/$p"
+done
+```
 
 ---
 
@@ -276,7 +293,7 @@ See Benchmarks table above + `papers/ORIGINAL_TECHNICAL_README.md` for the unabr
 
 **Why does PMKID match the book exactly?** Same passphrase (`purple123`), SSID (`Kathy`) and MACs through the same HMAC-SHA1 construction. Proof the implementation is correct.
 
-**How do I share?** Push to GitHub, enable Pages (above), send the `preview.html` link. The quiz teaches for you.
+**How do I share?** Push to GitHub, enable Pages (above), send the [live site link](https://m0-ar.github.io/iot-hacking-zero-to-hero-benchmark-2026/preview.html). The quiz teaches for you.
 
 **Can I extend it?** Yes. Copy any `exp*.py`, keep the `unit_verified` + JSON shape, add it to `run_all.py`.
 
@@ -292,7 +309,7 @@ MIT — reproduce, teach, disclose responsibly.
 
 <div align="center">
 
-**If this taught you one attack, star it and send `preview.html` to one friend.**
+**If this taught you one attack, star it and send [the live site](https://m0-ar.github.io/iot-hacking-zero-to-hero-benchmark-2026/preview.html) to one friend.**
 
 `python3 experiments/run_all.py` → green means you own the book, not just read it.
 
