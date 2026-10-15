@@ -215,7 +215,9 @@ Publish in 2 minutes:
 ```bash
 git add preview.html docs/preview.html index.html docs/index.html .nojekyll docs/.nojekyll docs/demo.gif docs/hero.webp README.md
 git commit -m "publish site" && git push origin main
-# GitHub → Settings → Pages → Deploy from branch → main → /(root)  (or /docs — both work)
+# GitHub → Settings → Pages → Deploy from branch → main → /(root)
+# (Important: choose /(root), not /docs — only root serves all three links above.
+# With /docs, `/` and `/preview.html` still work but `/docs/preview.html` 404s.)
 # Wait 1–2 min, check Actions → "pages build and deployment", then click the table above.
 ```
 Branch deploy (simplest, recommended for beginners) vs Actions (for builds): choose branch deploy here because the site is static with no build step.
