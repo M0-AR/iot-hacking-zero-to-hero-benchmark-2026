@@ -1,0 +1,9 @@
+paho-mqtt>=1.6
+scapy>=2.5
+cryptography>=41
+jupyterlab
+pytest
+requests
+numpy
+pandas
+matplotlib
